@@ -5,6 +5,7 @@ export default function App() {
   const inputRef = useRef(null);
   const handleChange = () => {
     inputRef.current.focus();
+    console.log(inputRef.current);
   };
   return (
     <div>
