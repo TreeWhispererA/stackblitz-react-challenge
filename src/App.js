@@ -1,16 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 
 export default function App() {
-  const inputRef = useRef(null);
-  const handleChange = () => {
-    inputRef.current.focus();
-    console.log(inputRef.current);
-  };
+  const [value, setValue] = useState('');
+  useEffect(() => {
+    console.log('value changed', value);
+  }, [value]);
   return (
     <div>
-      <input type="text" ref={inputRef} />
-      <button onClick={handleChange}>Event Handler</button>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
     </div>
   );
 }
